@@ -20,5 +20,5 @@ steps:
       curl -X POST \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer $(GITHUB_TOKEN)" \
-https://api.github.com/repos/$(githubRepoOwner)/$(githubRepoName)/actions/workflows/$(githubWorkflowFile)/dispatches \
+       https://api.github.com/repos/$(githubRepoOwner)/$(githubRepoName)/actions/workflows/$(githubWorkflowFile)/dispatches \
         -d "{\"ref\":\"$(githubRef)\"}"
