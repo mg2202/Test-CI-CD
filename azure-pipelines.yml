@@ -1,0 +1,23 @@
+trigger:
+- none  # or 'main' if you want auto-trigger
+ 
+pool:
+  vmImage: 'ubuntu-latest'
+ 
+variables:
+  githubRepoOwner: 'mg2202'
+  githubRepoName: 'Test-CI-CD'
+  githubWorkflowFile: 'hello-world.yml'
+  githubRef: 'refs/heads/main'  # or whichever branch has the workflow
+ 
+steps:
+- task: Bash@3
+  name: TriggerGitHubWorkflow
+  inputs:
+    targetType: 'inline'
+    script: |
+      curl -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer $(GITHUB_TOKEN)" \
+https://api.github.com/repos/$(githubRepoOwner)/$(githubRepoName)/actions/workflows/$(githubWorkflowFile)/dispatches \
+        -d "{\"ref\":\"$(githubRef)\"}"
