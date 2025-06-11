@@ -2,7 +2,7 @@ trigger:
 - none  # or 'main' if you want auto-trigger
  
 pool:
-  vmImage: 'ubuntu-latest'
+  name: testCICD
  
 variables:
   githubRepoOwner: 'mg2202'
