@@ -11,7 +11,7 @@ variables:
   githubRef: 'refs/heads/main'  # or whichever branch has the workflow
  
 steps:
-- task: Bash@3
+- task: CmdLine@2
   name: TriggerGitHubWorkflow
   inputs:
     targetType: 'inline'
