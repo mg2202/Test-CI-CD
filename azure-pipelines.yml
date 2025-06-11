@@ -16,7 +16,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo "Triggering GitHub Actions workflow..."
+      echo "Triggering GitHub Actions workflow $date"
       curl -X POST \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer $(GITHUB_TOKEN)" \
